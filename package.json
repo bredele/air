@@ -1,0 +1,26 @@
+{
+  "name": "air",
+  "version": "0.0.0",
+  "description": "air density (dry and humidity)",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bredele/air.git"
+  },
+  "keywords": [
+    "air",
+    "density"
+  ],
+  "author": "Olivier Wietrich <olivier.wietrich@gmail.com> (http://github.com/bredele)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bredele/air/issues"
+  },
+  "homepage": "https://github.com/bredele/air"
+}
