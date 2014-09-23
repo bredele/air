@@ -19,31 +19,31 @@ module.exports = density;
  * 
  * @param {K} temperature
  * @param {m} altitude
- * @param {Number} humidity (percentage)
+ * @param {%} humidity (0.5 for 50%)
  * @param {kg·m−3}
  * @api public
  */
 
 function density(temperature, altitude, humidity) {
-	var pressure = atmospheric(altitude || 0);
-	var rh = humidity ? constant(temperature, pressure, humidity) : 287.058;
-	return 100 * pressure / (rh * temperature);
-};
+	var pressure = 100 * atmospheric(altitude || 0);
+	var rh = humidity ? density.constant(temperature, pressure, humidity) : 287.058;
+	return pressure / (rh * temperature);
+}
 
 
 /**
  * Specific gas constant for water air.
  * 
  * @param  {K} temperature 
- * @param  {hPa} pressure 
+ * @param  {Pa} pressure 
  * @param  {%} humidity 
  * @return {J.K-1.mol-1}
  * @api private
  */
 
-density.constant = function constant(temperature, pressure, humidity) {
-	var psat = sat(temperature - 273.15);
-  return 287.06 / (1 - (humidity * psat/pressure) * (1 - 287.06/461));
+density.constant = function(temperature, pressure, humidity) {
+	var psat = density.saturation(temperature);
+  return 287.058 / (1 - (humidity * psat/pressure) * (1 - 287.058/461));
 };
 
 
@@ -51,10 +51,10 @@ density.constant = function constant(temperature, pressure, humidity) {
  * Saturation vapor pressure.
  * 
  * @param  {C} temperature
- * @return {hPa}
+ * @return {Pa}
  * @api private 
  */
 
-density.saturation = function sat(temperature) {
-	return 611.213 * Math.exp(17.5043 * temperature / (241.2 + temperature));
+density.saturation = function(temperature) {
+	return 611.657 * Math.exp(17.2799 - (4102.99 / (temperature - 35.719)));
 };

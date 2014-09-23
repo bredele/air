@@ -23,13 +23,16 @@ density(293.15);
 
 ## humidity
 
-The molar mass of water is smaller than the molar mass of dry air and so, redices the density of air. The specific gas constant for water air (`Rh`) is equal to:
+The molar mass of water is smaller than the molar mass of dry air and so, reduces the density of air. The specific gas constant for water air (`Rh`) is equal to:
 
 ![humidity](humidity.png)
 
 ```js
-
+// 0 °C, altitude 0 and 70% humidity
+density(273.15, 0, 0.7);
 ```
+
+> this formula only work with temperatures between `243.15K` and `343.15K`.
 
 ## License
 
