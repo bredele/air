@@ -7,6 +7,13 @@ var atmospheric = require('atmospheric');
 
 
 /**
+ * Expose air density.
+ */
+
+module.exports = density;
+
+
+/**
  * Density of air using
  * the ideal gas law.
  * 
@@ -17,7 +24,7 @@ var atmospheric = require('atmospheric');
  * @api public
  */
 
-module.exports = function (temperature, altitude, humidity) {
+function density(temperature, altitude, humidity) {
 	var pressure = atmospheric(altitude || 0);
 	var rh = humidity ? constant(temperature, pressure, humidity) : 287.058;
 	return 100 * pressure / (rh * temperature);
@@ -34,10 +41,10 @@ module.exports = function (temperature, altitude, humidity) {
  * @api private
  */
 
-function constant(temperature, pressure, humidity) {
+density.constant = function constant(temperature, pressure, humidity) {
 	var psat = sat(temperature - 273.15);
   return 287.06 / (1 - (humidity * psat/pressure) * (1 - 287.06/461));
-}
+};
 
 
 /**
@@ -48,6 +55,6 @@ function constant(temperature, pressure, humidity) {
  * @api private 
  */
 
-function sat(temperature) {
+density.saturation = function sat(temperature) {
 	return 611.213 * Math.exp(17.5043 * temperature / (241.2 + temperature));
-}
+};
