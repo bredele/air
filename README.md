@@ -5,7 +5,9 @@ air density (mass per unit volume of Earth atmosphere) function of temperature, 
 
 ![density](density.png)
 
-## air dry
+## dry air
+
+The specific gas constant for dry air (`Rh`) is equal to `287.058 J/kg.K`.
 
 ```js
 var density = require('air');
@@ -20,6 +22,10 @@ density(293.15);
 ```
 
 ## humidity
+
+The molar mass of water is smaller than the molar mass of dry air and so, redices the density of air. The specific gas constant for water air (`Rh`) is equal to:
+
+![humidity](humidity.png)
 
 ```js
 
