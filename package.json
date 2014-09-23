@@ -27,6 +27,7 @@
     "atmospheric": "bredele/atmospheric"
   },
   "devDependencies": {
-    "mocha": "^1.21.4"
+    "mocha": "^1.21.4",
+    "round": "git://github.com/bredele/round"
   }
 }

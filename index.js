@@ -18,5 +18,5 @@ var pressure = require('atmospheric');
  */
 
 module.exports = function(temperature, altitude, humidity) {
-	return pressure(altitude) / (287.058 * temperature);
+	return 100 * pressure(altitude || 0) / (287.058 * temperature);
 };
