@@ -28,8 +28,13 @@ The molar mass of water is smaller than the molar mass of dry air and so, reduce
 ![humidity](humidity.png)
 
 ```js
-// 0 °C, altitude 0 and 70% humidity
-density(273.15, 0, 0.7);
+// 0 °C, altitude 0 and 100% humidity
+density(273.15, 0, 1);
+// => 1.2893 kg·m−3
+
+// 20 °C, altitude 0 and 70% humidity
+density(293.15, 0, 0.7);
+// => 1.1967 kg·m−3
 ```
 
 > this formula only work with temperatures between `243.15K` and `343.15K`.
