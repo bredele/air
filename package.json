@@ -22,5 +22,11 @@
   "bugs": {
     "url": "https://github.com/bredele/air/issues"
   },
-  "homepage": "https://github.com/bredele/air"
+  "homepage": "https://github.com/bredele/air",
+  "dependencies": {
+    "atmospheric": "bredele/atmospheric"
+  },
+  "devDependencies": {
+    "mocha": "^1.21.4"
+  }
 }
