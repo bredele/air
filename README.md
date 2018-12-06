@@ -1,7 +1,7 @@
 air
 ===
 
-air density (mass per unit volume of Earth atmosphere) function of temperature, altitude (default sea level) and humidity.
+Air density (mass per unit volume of Earth atmosphere) function of temperature, altitude (default sea level) and humidity.
 
 ![density](density.png)
 
